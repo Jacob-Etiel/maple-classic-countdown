@@ -1,4 +1,8 @@
-const CACHE_NAME = "maple-countdown-v2";
+// OneSignal shares this service worker with the PWA so both can use the same
+// GitHub Pages project scope without competing registrations.
+importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+
+const CACHE_NAME = "maple-countdown-v3";
 const APP_SHELL = [
   "./",
   "index.html",
@@ -26,23 +30,4 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
   event.respondWith(fetch(event.request).catch(() => caches.match(event.request).then(response => response || caches.match("./"))));
-});
-
-self.addEventListener("push", event => {
-  const data = event.data?.json() ?? {
-    title: "Maple Classic Countdown",
-    body: "A new Classic World milestone is here!"
-  };
-  event.waitUntil(self.registration.showNotification(data.title, {
-    body: data.body,
-    icon: "icon-192.png",
-    badge: "icon-192.png",
-    tag: data.tag || "maple-classic-update",
-    data: { url: data.url || "./" }
-  }));
-});
-
-self.addEventListener("notificationclick", event => {
-  event.notification.close();
-  event.waitUntil(clients.openWindow(event.notification.data?.url || "./"));
 });

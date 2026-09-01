@@ -101,7 +101,40 @@ document.getElementById("notifyButton").addEventListener("click", async () => {
     return;
   }
 
-  buttonStatus.textContent = "The countdown is ready. We’ll connect real push delivery in the notification step.";
+  if (!window.MapleOneSignal) {
+    buttonStatus.textContent = "Notification service is still loading. Wait a moment and try again.";
+    return;
+  }
+
+  try {
+    const OneSignal = window.MapleOneSignal;
+    if (!OneSignal.Notifications.isPushSupported()) {
+      buttonStatus.textContent = "Push notifications aren’t supported on this device or browser.";
+      return;
+    }
+
+    if (!OneSignal.Notifications.permission) {
+      buttonStatus.textContent = "Choose Allow in the notification permission prompt.";
+      await OneSignal.Notifications.requestPermission();
+    }
+
+    if (OneSignal.Notifications.permission) {
+      await OneSignal.User.PushSubscription.optIn();
+      buttonStatus.textContent = "✓ Launch notifications are enabled on this device.";
+    } else {
+      buttonStatus.textContent = "Notifications weren’t enabled. You can allow them later in iPhone Settings.";
+    }
+  } catch (error) {
+    console.error("Notification subscription failed", error);
+    buttonStatus.textContent = "Couldn’t enable notifications yet. Close the app, reopen it, and try once more.";
+  }
+});
+
+window.addEventListener("maple-onesignal-ready", () => {
+  const OneSignal = window.MapleOneSignal;
+  if (OneSignal?.Notifications?.permission) {
+    buttonStatus.textContent = "✓ Launch notifications are enabled on this device.";
+  }
 });
 
 if ("serviceWorker" in navigator) {

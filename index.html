@@ -12,6 +12,21 @@
   <link rel="icon" href="icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="icon-180.png">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "3f7133dc-ada4-48d2-b0ea-1fff7e7dabb8",
+        safari_web_id: "web.onesignal.auto.5cadd501-3597-404f-b8f7-8075876e5307",
+        notifyButton: { enable: false },
+        serviceWorkerPath: "maple-classic-countdown/service-worker.js",
+        serviceWorkerParam: { scope: "/maple-classic-countdown/" }
+      });
+      window.MapleOneSignal = OneSignal;
+      window.dispatchEvent(new Event("maple-onesignal-ready"));
+    });
+  </script>
   <title>Maple Classic Countdown</title>
 </head>
 <body>

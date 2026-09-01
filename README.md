@@ -28,4 +28,4 @@ This project uses relative paths, so it works either at a custom domain root or 
 
 ## Notifications
 
-The service worker can receive push events, but subscription storage and scheduled delivery still need to be connected to a backend. Do not request notification permission until the user presses the notification button.
+Web Push is provided through OneSignal. The OneSignal SDK is initialized in `index.html`, while its worker code is imported by the existing PWA `service-worker.js`. Permission is requested only after the user presses the notification button.
