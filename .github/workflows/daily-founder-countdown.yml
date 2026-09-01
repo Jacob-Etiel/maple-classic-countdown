@@ -1,0 +1,40 @@
+name: Daily Founder Access countdown
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+      timezone: "Asia/Jerusalem"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Preview the message without sending it
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-founder-access-notification
+  cancel-in-progress: false
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ONESIGNAL_APP_ID: 3f7133dc-ada4-48d2-b0ea-1fff7e7dabb8
+      ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Send daily countdown
+        run: node scripts/send-daily-countdown.mjs
