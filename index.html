@@ -9,8 +9,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Maple Countdown">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/maple-icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icon-180.png">
   <link rel="stylesheet" href="style.css">
   <title>Maple Classic Countdown</title>
 </head>
@@ -33,9 +33,12 @@
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">THE ADVENTURE RETURNS</p>
-      <h1>MapleStory<br><span>Classic World</span></h1>
-      <p class="intro">Track every milestone on the road back to Victoria Island.</p>
+      <div class="hero-copy">
+        <p class="eyebrow">THE ADVENTURE RETURNS</p>
+        <h1>MapleStory<br><span>Classic World</span></h1>
+        <p class="intro">Track every milestone on the road back to Victoria Island.</p>
+      </div>
+      <div class="hero-art" role="img" aria-label="Classic World adventurers aboard the official Nexon airship artwork"></div>
     </section>
 
     <section class="countdown-panel" aria-labelledby="nextMilestoneTitle">
@@ -81,7 +84,8 @@
   </main>
 
   <footer>
-    <p>Fan-made countdown · Not affiliated with Nexon</p>
+    <p><strong>Unofficial fan-made countdown.</strong> Not endorsed by or affiliated with NEXON.</p>
+    <p>MapleStory, Classic World, and featured artwork © NEXON Korea Corp. and NEXON America Inc. · <a href="https://www.nexon.com/mscw/classic-world-closed-online-test-2" target="_blank" rel="noopener">Official Classic World page</a></p>
     <p>Dates last checked September 1, 2026</p>
   </footer>
 

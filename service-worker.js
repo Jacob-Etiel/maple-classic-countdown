@@ -1,15 +1,14 @@
-const CACHE_NAME = "maple-countdown-v1";
+const CACHE_NAME = "maple-countdown-v2";
 const APP_SHELL = [
   "./",
   "index.html",
   "style.css",
   "app.js",
   "manifest.webmanifest",
-  "icons/maple-icon.svg",
-  "icons/icon-180.png",
-  "icons/icon-192.png",
-  "icons/icon-512.png",
-  "icons/icon-512-maskable.png"
+  "icon-180.png",
+  "icon-192.png",
+  "icon-512.png",
+  "icon-512-maskable.png"
 ];
 
 self.addEventListener("install", event => {
@@ -36,8 +35,8 @@ self.addEventListener("push", event => {
   };
   event.waitUntil(self.registration.showNotification(data.title, {
     body: data.body,
-    icon: "icons/icon-192.png",
-    badge: "icons/icon-192.png",
+    icon: "icon-192.png",
+    badge: "icon-192.png",
     tag: data.tag || "maple-classic-update",
     data: { url: data.url || "./" }
   }));

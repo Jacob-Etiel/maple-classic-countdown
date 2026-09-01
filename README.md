@@ -2,6 +2,8 @@
 
 A static, installable countdown PWA for MapleStory Classic World.
 
+This is an unofficial, noncommercial fan project. MapleStory, Classic World, and the official artwork used on the site are owned by NEXON Korea Corp. and NEXON America Inc. Artwork is sourced from Nexon's official Classic World promotional page and is credited in the website footer.
+
 ## Current milestones
 
 - Founder’s Package sales: September 2, 2026
