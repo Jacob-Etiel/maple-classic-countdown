@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#12331f">
+  <meta name="description" content="Countdown to MapleStory Classic World Founder's Access and Grand Launch.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Maple Countdown">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/maple-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Maple Classic Countdown</title>
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <span class="cloud cloud-one"></span>
+    <span class="cloud cloud-two"></span>
+    <span class="leaf leaf-one">🍁</span>
+    <span class="leaf leaf-two">🍁</span>
+    <span class="leaf leaf-three">🍁</span>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Maple Classic Countdown home">
+      <span class="brand-leaf">🍁</span>
+      <span>Maple Classic Countdown</span>
+    </a>
+    <button class="install-button" id="installButton" type="button">Install app</button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">THE ADVENTURE RETURNS</p>
+      <h1>MapleStory<br><span>Classic World</span></h1>
+      <p class="intro">Track every milestone on the road back to Victoria Island.</p>
+    </section>
+
+    <section class="countdown-panel" aria-labelledby="nextMilestoneTitle">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">NEXT MILESTONE</p>
+          <h2 id="nextMilestoneTitle">Founder’s Access</h2>
+        </div>
+        <span class="date-chip" id="nextMilestoneDate">October 6, 2026</span>
+      </div>
+
+      <div class="timer" id="timer" aria-live="polite">
+        <div class="time-block"><strong id="days">--</strong><span>Days</span></div>
+        <div class="time-block"><strong id="hours">--</strong><span>Hours</span></div>
+        <div class="time-block"><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div class="time-block"><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+
+      <p class="time-note">Countdown is to the start of launch day in your timezone. Nexon has not announced the exact server-opening hour yet.</p>
+
+      <button class="notify-button" id="notifyButton" type="button">
+        <span>🔔</span>
+        <span><strong>Launch notifications</strong><small>Get ready for 24-hour, 1-hour, and live alerts</small></span>
+      </button>
+      <p class="button-status" id="buttonStatus" role="status"></p>
+    </section>
+
+    <section class="milestones" aria-labelledby="timelineTitle">
+      <div class="section-heading">
+        <p class="panel-kicker">ROAD TO CLASSIC</p>
+        <h2 id="timelineTitle">Launch timeline</h2>
+      </div>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <section class="install-card" id="installHelp">
+      <div class="phone-icon" aria-hidden="true">📱</div>
+      <div>
+        <h2>Put it on your iPhone</h2>
+        <p>Open this page in Safari, tap <strong>Share</strong>, then choose <strong>Add to Home Screen</strong>. Open the new icon before enabling notifications.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Fan-made countdown · Not affiliated with Nexon</p>
+    <p>Dates last checked September 1, 2026</p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
